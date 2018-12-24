@@ -24,13 +24,15 @@ try {
     }*/
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect( "/admin/dashboard" );
 });
 
 //DASHBOARDS
 Route::get('/admin/dashboard','Admin\DashboardController@show');
 //Add Announcement - Route
 Route::get('/admin/addannouncement','Admin\AnnouncementController@addAnnounce');
+
+Route::post( "/admin/addannouncement", "Admin\AnnouncementController@addAnnouncePost" );
 //Update Announcement - Route
 Route::get('/admin/updateannouncement','Admin\AnnouncementController@updateAnnounce');
 //View Announcement - Route
